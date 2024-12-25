@@ -1,0 +1,32 @@
+public class ThreadExample {
+
+    public static void main(String[] args) {
+        // Thread to display "BMS College of Engineering" every 10 seconds
+        Thread thread1 = new Thread(() -> {
+            while (true) {
+                System.out.println("BMS College of Engineering");
+                try {
+                    Thread.sleep(10000); // 10 seconds
+                } catch (InterruptedException e) {
+                    System.out.println("Thread interrupted: " + e.getMessage());
+                }
+            }
+        });
+
+        // Thread to display "CSE" every 2 seconds
+        Thread thread2 = new Thread(() -> {
+            while (true) {
+                System.out.println("CSE");
+                try {
+                    Thread.sleep(2000); // 2 seconds
+                } catch (InterruptedException e) {
+                    System.out.println("Thread interrupted: " + e.getMessage());
+                }
+            }
+        });
+
+        // Start both threads
+        thread1.start();
+        thread2.start();
+    }
+}
